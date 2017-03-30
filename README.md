@@ -32,7 +32,7 @@ docker run --env-file uaavars add_uaa_user
 Execute the container with /bin/bash to debug things or just use the uaac
 
 ~~~
-$ docker run --env-file --entrypoint="/bin/bash" uaavars add_uaa_user
+$ docker run --entrypoint="/bin/bash" --env-file uaavars add_uaa_user
 root@60dc98f6b02a:/tmp# uaac target $UAA_ENDPOINT --skip-ssl-validation
 
 Target: https://uaa.domain.cf
