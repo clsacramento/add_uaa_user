@@ -16,6 +16,11 @@ function retry () {
     return 1
 }
 
+if [ ! -z "$AUTH_GRANT_TYPES" ]
+then
+        AUTH_GRANT_TYPES="client_credentials"
+fi
+
 retry 10 5 'Waiting to target UAA...' "uaac target $UAA_ENDPOINT --skip-ssl-validation"
 echo "UAA target on $HCF_UAA_ENDPOINT succeeded"
 
@@ -34,4 +39,4 @@ if [ "$?" = "0" ] ; then
 fi
 
 echo "Creating client $UAA_CLIENT_NAME ..."
-uaac client add $UAA_CLIENT_NAME -s $UAA_CLIENT_SECRET --authorities $NEW_AUTHORITIES --authorized_grant_types client_credentials
+uaac client add $UAA_CLIENT_NAME -s $UAA_CLIENT_SECRET --authorities $NEW_AUTHORITIES --authorized_grant_types $AUTH_GRANT_TYPES
