@@ -18,6 +18,7 @@ UAA_SECRET=adminsecret
 UAA_CLIENT_NAME=new_client_to_create
 UAA_CLIENT_SECRET=newclientsecret
 NEW_AUTHORITIES=cloud_controller.admin,doppler.firehose
+AUTH_GRANT_TYPES=client_credentials
 EOF
 ~~~
 
